@@ -4,8 +4,9 @@
     # Have "hit/stick" ability 
     # GIVE USER CHOICE OF HAVING ACE BE 1 OR 11!
     
-# todo Dealer has been added, but needs to be able to draw a third/fourth card. Could make this happen if first 2 cards total <13, or similar
+# todo Allow dealer to draw fourth card. 
 # todo If player is dealt a card, that card should be removed from deck. So less chance of getting it next time!
+# todo Ability to play again
 # todo (ADVANCED FEATURE) Add ability to bet
 # todo (ADVANCED FEATURE) Add suits
 
@@ -110,6 +111,11 @@ if dealer_hand_value <15:
     dealer_hand_value += dealer3_value
     print('New dealer hand value is {}'.format(dealer_hand_value))
 
+    if dealer_hand_value >21:
+        print('Dealer is bust!')
+        print('You win!')
+        quit() #this makes the program end as soon as dealer loses
+
 #HIT OR STICK 
 print('Hit, or stick?')
 user_input = input()
@@ -155,6 +161,14 @@ if user_input in ['hit','Hit','HIT']:
             print('The value of your hand is now {}'.format(hand_value))
             if hand_value > 21:
                 print('Bust! Too bad.')
+    elif user_input in ['Stick', 'stick', 'STICK']:
+        print('Stick, got it')
+        print('The value of your hand is {}'.format(hand_value))
+        print('The value of the dealer\'s hand is {}'.format(dealer_hand_value))
+        if hand_value > dealer_hand_value:
+            print('You win!')
+        else:
+            print('Dealer wins!')
 
 elif user_input in ['Stick','stick','STICK']:
     print('Stick, got it')
