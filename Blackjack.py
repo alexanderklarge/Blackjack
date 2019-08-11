@@ -3,13 +3,16 @@
 #Probably the best way to do it is to have a dictionary from 1 - 14
 #with 11 being ace, 12 being Jack, 13 being Queen, 14 being King
 
-#TO DO:
+#General plan:
     # Give player two cards
     # Have 4 of each card, so if player or dealer gets one, they have less chance of getting same
     # Have "hit/stick" ability 
     # GIVE USER CHOICE OF HAVING ACE BE 1 OR 11!
     
-#LATER 
+#To do
+    # Add dealer functionality (currently just the player)
+    
+#Advanced features
     # Have ability to bet!
     # Add suits (do they matter? Just to ensure you aren't getting 2 x King of Hearts?)
   
@@ -29,8 +32,8 @@ card2_index = np.random.randint(52)
 card1 = deck[card1_index]
 card2 = deck[card2_index]
 
-print('Card 1: {}'.format(card1))
-print('Card 2: {}'.format(card2))
+print('First card is a {}'.format(card1))
+print('Second card is a {}'.format(card2))
 
 ##ASSIGNING CARD 1 VALUE
 #If the card is 2-10, can just assign it's value to 2-10 in an easy way
@@ -57,3 +60,31 @@ if card2 in ['J','Q','K']:
 hand_value = card1_value + card2_value
 print('The value of your hand is {}'.format(hand_value))
 
+
+#HIT OR STICK 
+print('Hit, or stick?')
+user_input = input()
+
+if user_input in ['hit','Hit','HIT']:
+    print('Ok partner, third card coming up')
+    card3_index = np.random.randint(52) 
+    card3 = deck[card3_index]
+    print('Third card is a {}'.format(card3))
+    
+    ##ASSIGNING CARD 3 VALUE 
+    if card3 in range(2,11):
+        card3_value = card3
+    #If card is Ace, assign value to 11
+    if card3 == 'A':
+        card3_value = 11
+        #this would be a great place to have a user input (would you like ace to be 11 or 1)
+    if card3 in ['J','Q','K']:
+        card3_value = 10
+        
+    hand_value += card3_value
+    print('The value of your hand is now {}'.format(hand_value))
+    if hand_value >21:
+        print('Bust! Too bad.')
+
+elif user_input in ['Stick','stick','STICK']:
+    print('Stick, got it')
