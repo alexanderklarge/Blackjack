@@ -88,3 +88,5 @@ if user_input in ['hit','Hit','HIT']:
 
 elif user_input in ['Stick','stick','STICK']:
     print('Stick, got it')
+
+#Just testing if I have PyCharm set up right, delete me
