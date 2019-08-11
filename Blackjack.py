@@ -4,7 +4,7 @@
     # Have "hit/stick" ability 
     # GIVE USER CHOICE OF HAVING ACE BE 1 OR 11!
     
-# todo Allow dealer to draw fourth card. 
+# todo Allow dealer to draw fourth card.
 # todo If player is dealt a card, that card should be removed from deck. So less chance of getting it next time!
 # todo Ability to play again
 # todo (ADVANCED FEATURE) Add ability to bet
